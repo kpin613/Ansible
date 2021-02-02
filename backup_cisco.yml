@@ -28,9 +28,9 @@
        commands: show run  
      register: config
 
-   - name: Save output to ~/network-programmability/backups/
+   - name: Save output to ~/Cisco/backups/
      copy:
        content: "{{config.stdout[0]}}"
-       dest: "~/network-programmability/backups/{{hostvars.localhost.DTG}}/{{inventory_hostname}}-{{hostvars.localhost.DTG}}-config.txt"
+       dest: "~/Cisco/backups/{{hostvars.localhost.DTG}}/{{inventory_hostname}}-{{hostvars.localhost.DTG}}-config.txt"
        
 - hosts: BGMU_Switches:children 
