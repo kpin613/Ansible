@@ -15,7 +15,7 @@
 
    - name: Create Directory {{hostvars.localhost.DTG}}
      file:
-      path: ~/network-programmability/backups/{{hostvars.localhost.DTG}}
+      path: ~/Cisco/backups/{{hostvars.localhost.DTG}}
       state: directory
   run_once: true
 
