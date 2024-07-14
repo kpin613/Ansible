@@ -6,6 +6,12 @@
  
    - name: remove apache2 package
      apt:
-       name: apache2
+       name: apache2*
        state: absent
+       autoremove: yes
+       purge: yes
  
+   - name: remove php support for apache
+     apt:
+       name: libapache2-mod-php
+       state: absent
