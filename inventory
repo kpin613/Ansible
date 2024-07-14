@@ -2,4 +2,4 @@
 #hhix@192.168.1.182
 192.168.1.182 ansible_user=hhix
 #192.168.1.182
-100.69.61.115 ansible_user=hhix
+#100.69.61.115 ansible_user=hhix

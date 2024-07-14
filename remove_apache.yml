@@ -13,5 +13,7 @@
  
    - name: remove php support for apache
      apt:
-       name: libapache2-mod-php
+       name: libapache2-mod-php*
        state: absent
+       autoremove: yes
+       purge: yes
