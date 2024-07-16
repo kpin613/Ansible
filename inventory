@@ -1,5 +1,8 @@
 [homelab]
 #hhix@192.168.1.182
-192.168.1.182 ansible_user=hhix
+#192.168.1.182 ansible_user=hhix
+#192.168.1.192 ansible_user=hhix
 #192.168.1.182
 #100.69.61.115 ansible_user=hhix
+192.168.1.182 apache_package=apache2 php_package=libapache2-mod-php
+192.168.1.192 apache_package=httpd php_package=php
