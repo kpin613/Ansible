@@ -1,0 +1,50 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: update repo index
+    apt:
+      update_cache: yes
+    when: ansible_distribution == "Ubuntu"
+  
+  - name: install apache2 package
+    ansible.builtin.apt:
+      name: apache2
+      state: latest
+    when: ansible_distribution == "Ubuntu"
+    
+  - name: install neofetch package
+    ansible.builtin.apt:
+      name: neofetch
+      state: latest
+    when: ansible_distribution == "Ubuntu"
+
+  - name: install epel gpg key
+    rpm_key:
+      state: present
+      key: https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-9
+    when: ansible_distribution == "Rocky"  
+
+  - name: epel repo 1
+    ansible.builtin.dnf:
+      name: 'https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm'
+    when: ansible_distribution == "Rocky"  
+
+  - name: epel repo 2
+    ansible.builtin.dnf:
+      name: 'https://dl.fedoraproject.org/pub/epel/epel-next-release-latest-9.noarch.rpm'
+    when: ansible_distribution == "Rocky"
+
+  - name: install apache2 package
+    ansible.builtin.dnf:
+      name: httpd
+      state: latest
+    when: ansible_distribution == "Rocky"
+    
+  - name: install neofetch package
+    ansible.builtin.dnf:
+      name: neofetch
+      state: latest
+    when: ansible_distribution == "Rocky"
