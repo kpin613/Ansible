@@ -20,4 +20,5 @@
          - php
        state: latest
        update_cache: yes
+       enabled: true
      when: ansible_distribution == "Fedora"
