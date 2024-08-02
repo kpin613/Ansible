@@ -1,8 +1,11 @@
 ---
 
-- name: Basic playbook
-  hosts: localhost
+- name: Basic playbook for hosts hello world
+  hosts: all
   tasks:
-   - name: Print a message
-     debug:
+   - name: Ping my hosts
+     ansible.builtin.ping:
+
+   - name: Print message
+     ansible.builtin.debug:
       msg: "Hello, World!"
