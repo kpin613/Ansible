@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=https://checkmk.southernfriedtech.org/cmk/check_mk/wato.py?mode=download_agents_linux
+HostUrl=https://checkmk.southernfriedtech.org/cmk/check_mk/agents/check-mk-agent-2.3.0p11-1.noarch.rpm

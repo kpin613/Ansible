@@ -1,0 +1,33 @@
+---
+
+ - hosts: all
+   become: true
+   tasks:
+
+   - name: install updates (Fedora)
+     dnf:
+       update_only: yes
+       update_cache: yes
+     when: ansible_distribution == "Fedora"
+
+
+ - hosts: all
+   become: true
+   tasks:
+
+   - name: mkdir /tmp/RPMS
+     file: path=/tmp/RPMS state=directory
+
+   - name: Copy RPMs to /tmp/RPMS folder with owner and permissions
+     ansible.builtin.copy:
+       src: /home/hhix/Code/Ansible/fedora_agent/check-mk-agent-2.3.0p11-1.noarch.rpm
+       dest: /tmp/RPMS
+       owner: hhix
+       group: hhix
+       mode: '0755'
+
+   - name: Install my package from a file on server
+     shell: rpm -ivh /tmp/RPMS/check-mk-agent-2.3.0p11-1.noarch.rpm
+     async: 1800
+     poll: 0
+     become: true
